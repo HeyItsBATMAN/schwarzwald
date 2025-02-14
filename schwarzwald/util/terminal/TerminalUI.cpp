@@ -267,10 +267,6 @@ TerminalUI::~TerminalUI()
 void
 TerminalUI::redraw()
 {
-  const auto time_since_last_redraw =
-    duration_cast<milliseconds>(high_resolution_clock::now() - _last_redraw_time);
-  if (time_since_last_redraw < _redraw_interval)
-    return;
   _last_redraw_time = high_resolution_clock::now();
 
   // TODO Don't rebuild the UI completely, instead just update what has changed
