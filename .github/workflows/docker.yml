@@ -3,7 +3,7 @@ name: Publish Docker image
 on:
   push:
     branches:
-      - master
+      - combined-fix
   release:
     types: [published]
 
@@ -37,7 +37,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest
             type=ref,event=tag,enable=true
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
